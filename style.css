@@ -1,0 +1,215 @@
+/* ===== GLOBAL ===== */
+ *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0 0 0;
+    z-index: 10;
+    position: relative;
+}
+
+header h1 {
+    color: #c2185b;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ===== STICKY NOTES ===== */
+.notes-container {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    margin-top: 20px;
+    overflow: visible;
+}
+
+
+.note {
+    position: absolute;
+    width: 180px;
+    height: 150px;
+    background: #fff7a8;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 6px 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    animation: floatNote 5s ease-in-out infinite;
+    z-index: 2;
+}
+
+.note p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.4;
+}
+
+
+/* Floating animation */
+@keyframes floatNote {
+    0%, 100% {
+        transform: translateY(0) rotate(var(--angle));
+    }
+    50% {
+        transform: translateY(-10px) rotate(var(--angle));
+    }
+}
+
+
+.note {
+    animation: floatNote 4s ease-in-out infinite;
+}
+
+.note:hover {
+    transform: scale(1.08) rotate(var(--angle));
+    z-index: 5;
+}
+
+/* ===== TEDDY IMAGE ===== */
+.teddy {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 10px auto; /* top margin reduced */
+    position: relative;
+    z-index: 5;
+}
+
+.teddy img {
+    width: 220px;        /* slightly bigger */
+    max-width: 90%;      /* responsive */
+    height: auto;
+    animation: floatTeddy 4s ease-in-out infinite;
+}
+
+
+
+@keyframes floatTeddy {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* ===== BUTTON ===== */
+.ask {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+/* Buttons */
+#yesBtn, #noBtn {
+    padding: 14px 35px;
+    font-size: 18px;
+    border-radius: 35px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+#yesBtn {
+    background: linear-gradient(135deg, #ff4f8b, #ff0844);
+    color: white;
+}
+
+#noBtn {
+    background: #f2f2f2;
+    color: #555;
+}
+
+/* Bribe box */
+.bribe {
+    margin-top: 25px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.bribe img {
+    width: 200px;
+    max-width: 80%;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.bribe p {
+    margin-top: 12px;
+    font-size: 18px;
+    color: #c2185b;
+}
+
+/* Hide by default */
+.hidden {
+    display: none;
+}
+
+
+/* ===== SUCCESS SCREEN ===== */
+.success {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff0844, #ffb199);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2.2rem;
+    text-align: center;
+    z-index: 999;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.bribe-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 182, 193, 0.92);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.bribe-content {
+    text-align: center;
+    animation: popIn 0.4s ease;
+}
+
+.bribe-content img {
+    width: 350px;
+    max-width: 85%;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+.bribe-content p {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: #c2185b;
+    font-weight: 600;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+

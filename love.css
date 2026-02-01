@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffd1dc, #ff9ebc);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* ===== SCENE ===== */
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* ===== MESSAGE CARD ===== */
+.message-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    max-width: 650px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    z-index: 10; /* always above images */
+}
+
+.message-card h1 {
+    color: #c2185b;
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+}
+
+.message-card p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.8;
+}
+
+/* ===== FLOATING IMAGES ===== */
+.float-img {
+    position: absolute;
+    width: 180px;          /* control size here */
+    max-height: 240px;     /* prevents oversized images */
+    object-fit: contain;   /* NO CROPPING */
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    animation: float 6s ease-in-out infinite;
+    z-index: 2;
+}
+
+}
+
+/* Individual positions */
+.img1 {
+    top: 20px;
+    left: 20px;
+}
+
+.img2 {
+    top: 20px;
+    right: 20px;
+}
+
+.img3 {
+    bottom: 20px;
+    left: 20px;
+}
+
+.img4 {
+    bottom: 20px;
+    right: 20px;
+}
+
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+.love-body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.love-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+}
+.love-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    z-index: 10; /* ALWAYS above images */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+
