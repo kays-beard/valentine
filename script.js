@@ -60,6 +60,7 @@ bribeOverlay.addEventListener("click", () => {
 
 // YES button → love page
 yesBtn.addEventListener("click", () => {
-    window.location.href = "love.html";
+    window.location.href = "love.htm";
 });
+
 
