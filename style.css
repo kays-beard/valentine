@@ -214,31 +214,49 @@ header h1 {
     .yes-link {
     text-decoration: none;
 }
-/* Make YES inside a link look like a normal button */
-.yes-link button {
+/* ===== BUTTONS ===== */
+.ask {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+/* Shared button style */
+button {
     padding: 14px 35px;
     font-size: 18px;
     border-radius: 35px;
     border: none;
     cursor: pointer;
-    background: linear-gradient(135deg, #ff4f8b, #ff0844);
-    color: white;
-    box-shadow: 0 10px 20px rgba(255,0,90,0.45);
     transition: transform 0.3s;
+    box-shadow: 0 10px 20px rgba(255,0,90,0.45);
 }
 
-/* On hover */
-.yes-link button:hover {
+/* YES button */
+#yesBtn {
+    background: linear-gradient(135deg, #ff4f8b, #ff0844);
+    color: white;
+}
+
+/* NO button */
+#noBtn {
+    background: #f2f2f2;
+    color: #555;
+}
+
+/* YES inside a link should not inherit link styles */
+.btn-link {
+    text-decoration: none; /* remove underline */
+    display: inline-block; /* ensure it behaves like a block container */
+}
+
+/* Hover effects */
+#yesBtn:hover, #noBtn:hover {
     transform: scale(1.1);
 }
 
-/* Ensure link itself has no extra styles */
-.yes-link {
-    text-decoration: none;
-}
 
-
-}
 
 
 
