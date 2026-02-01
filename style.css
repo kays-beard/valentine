@@ -273,6 +273,86 @@ button {
     transform: scale(1.1);
 }
 
+/* ===== GLOBAL RESPONSIVE ===== */
+body {
+    font-size: 16px; /* base font size */
+}
+
+/* Sticky notes container responsive */
+.notes-container {
+    padding: 15px 20px;
+    gap: 15px;
+}
+
+/* Sticky note text responsive */
+.note p {
+    font-size: 14px;
+}
+
+/* Teddy responsive */
+.teddy img {
+    width: 70%; /* scale based on container */
+    max-width: 280px;
+}
+
+/* Buttons responsive */
+button {
+    padding: 12px 30px;
+    font-size: 16px;
+}
+/* For tablets and phones */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .note {
+        width: 150px;
+        height: 140px;
+    }
+
+    .note p {
+        font-size: 13px;
+    }
+
+    .teddy img {
+        width: 60%;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+/* For small phones */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .note {
+        width: 130px;
+        height: 120px;
+    }
+
+    .note p {
+        font-size: 12px;
+    }
+
+    .teddy img {
+        width: 55%;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+html {
+    font-size: calc(14px + 0.5vw); /* scales font based on viewport width */
+}
+
 
 
 
