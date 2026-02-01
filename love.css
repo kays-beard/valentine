@@ -70,5 +70,13 @@ body {
     .message-card p {
         font-size: 15px;
     }
+    .love-ending {
+    margin-top: 25px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #c2185b;
 }
+
+}
+
 
