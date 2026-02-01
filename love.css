@@ -1,46 +1,55 @@
+/* ===== RESET ===== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* ===== GLOBAL ===== */
+html {
+    font-size: clamp(14px, 2.5vw, 18px);
+}
+
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #ffd1dc, #ff9ebc);
+    background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
 }
 
 /* ===== SCENE ===== */
 .scene {
     position: relative;
     width: 100%;
-    height: 100vh;
+    max-width: 1100px;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 /* ===== MESSAGE CARD ===== */
 .message-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 40px;
+    position: relative;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: clamp(20px, 4vw, 40px);
     max-width: 650px;
     border-radius: 25px;
     text-align: center;
     box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-    z-index: 10; /* always above images */
+    z-index: 10;
 }
 
 .message-card h1 {
     color: #c2185b;
-    margin-bottom: 20px;
-    font-size: 2.4rem;
+    margin-bottom: 15px;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
 }
 
 .message-card p {
-    font-size: 18px;
+    font-size: clamp(1rem, 2.8vw, 1.2rem);
     color: #444;
     line-height: 1.8;
 }
@@ -48,125 +57,43 @@ body {
 /* ===== FLOATING IMAGES ===== */
 .float-img {
     position: absolute;
-    width: 180px;          /* control size here */
-    max-height: 240px;     /* prevents oversized images */
-    object-fit: contain;   /* NO CROPPING */
-    border-radius: 20px;
+    width: clamp(110px, 25vw, 180px);
+    max-height: 240px;
+    object-fit: contain;
+    border-radius: 18px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.25);
     animation: float 6s ease-in-out infinite;
     z-index: 2;
 }
 
-}
-
-/* Individual positions */
-.img1 {
-    top: 20px;
-    left: 20px;
-}
-
-.img2 {
-    top: 20px;
-    right: 20px;
-}
-
-.img3 {
-    bottom: 20px;
-    left: 20px;
-}
-
-.img4 {
-    bottom: 20px;
-    right: 20px;
-}
-
+/* Positions */
+.img1 { top: 10px; left: 10px; }
+.img2 { top: 10px; right: 10px; }
+.img3 { bottom: 10px; left: 10px; }
+.img4 { bottom: 10px; right: 10px; }
 
 /* Floating animation */
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-12px);
-    }
-}
-.love-body {
-    margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
 
-.love-container {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    height: 600px;
-}
-.love-message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    background: rgba(255, 255, 255, 0.85);
-    padding: 30px;
-    border-radius: 25px;
-    text-align: center;
-    z-index: 10; /* ALWAYS above images */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-/* ===== LOVE PAGE RESPONSIVE ===== */
-
-/* Base adjustments */
-body {
-    font-size: 16px;
-}
-
-/* Container for message */
-.love-message {
-    padding: 20px;
-    font-size: 1.6rem;
-    max-width: 90%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* Floating images */
-.floating-img {
-    width: 200px;
-    max-width: 30%;
-}
-
-/* Smaller screens */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .love-message {
-        font-size: 1.3rem;
-        padding: 15px;
-    }
-
-    .floating-img {
-        width: 150px;
-        max-width: 35%;
+    .float-img {
+        width: clamp(90px, 28vw, 150px);
+        opacity: 0.85;
     }
 }
 
-/* Small phones */
 @media (max-width: 480px) {
-    .love-message {
-        font-size: 1.1rem;
-        padding: 10px;
+    .float-img {
+        width: 90px;
+        opacity: 0.7;
     }
 
-    .floating-img {
-        width: 120px;
-        max-width: 40%;
+    .img1, .img2 {
+        top: auto;
+        bottom: 15px;
     }
 }
-
-
-
-
