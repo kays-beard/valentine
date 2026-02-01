@@ -1,199 +1,130 @@
-/* ===== GLOBAL ===== */
- *{
+/* ===== RESET ===== */
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* ===== GLOBAL ===== */
+html {
+    font-size: clamp(14px, 2.5vw, 18px);
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
-    height: 100vh;
+    min-height: 100vh;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* ===== HEADER ===== */
 header {
-    width: 100%;
+    margin-top: 25px;
     text-align: center;
-    padding: 30px 0 0 0;
-    z-index: 10;
-    position: relative;
 }
 
 header h1 {
     color: #c2185b;
-    font-size: 2.8rem;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
 /* ===== STICKY NOTES ===== */
 .notes-container {
-    position: relative;
     width: 100%;
-    height: 260px;
-    margin-top: 20px;
-    overflow: visible;
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
-
 .note {
-    position: absolute;
-    width: 180px;
-    height: 150px;
+    width: clamp(130px, 40vw, 180px);
+    min-height: 130px;
     background: #fff7a8;
-    padding: 15px;
+    padding: 14px;
     border-radius: 14px;
     box-shadow: 6px 10px 25px rgba(0,0,0,0.2);
     text-align: center;
-    animation: floatNote 5s ease-in-out infinite;
-    z-index: 2;
+    animation: floatNote 4s ease-in-out infinite;
 }
 
 .note p {
-    font-size: 15px;
+    font-size: 0.9rem;
     color: #333;
     line-height: 1.4;
 }
 
-
-/* Floating animation */
 @keyframes floatNote {
-    0%, 100% {
-        transform: translateY(0) rotate(var(--angle));
-    }
-    50% {
-        transform: translateY(-10px) rotate(var(--angle));
-    }
+    0%,100% { transform: translateY(0) rotate(var(--angle)); }
+    50% { transform: translateY(-10px) rotate(var(--angle)); }
 }
 
-
-.note {
-    animation: floatNote 4s ease-in-out infinite;
-}
-
-.note:hover {
-    transform: scale(1.08) rotate(var(--angle));
-    z-index: 5;
-}
-
-/* ===== TEDDY IMAGE ===== */
+/* ===== TEDDY ===== */
 .teddy {
     display: flex;
     justify-content: center;
-    margin: 20px auto 10px auto; /* top margin reduced */
-    position: relative;
-    z-index: 5;
+    margin: 10px 0 20px;
 }
 
 .teddy img {
-    width: 220px;        /* slightly bigger */
-    max-width: 90%;      /* responsive */
+    width: clamp(160px, 60vw, 260px);
     height: auto;
     animation: floatTeddy 4s ease-in-out infinite;
 }
-
-
 
 @keyframes floatTeddy {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-12px); }
 }
 
-/* container */
+/* ===== BUTTONS ===== */
 .ask {
     display: flex;
-    gap: 20px;
+    gap: 18px;
     justify-content: center;
-    margin-top: 25px;
+    margin-bottom: 30px;
 }
 
-/* Shared button style */
 button {
-    padding: 14px 35px;
-    font-size: 18px;
-    border-radius: 35px;       /* circular ends */
+    padding: 12px 28px;
+    font-size: 1rem;
+    border-radius: 35px;
     border: none;
     cursor: pointer;
-    transition: transform 0.3s;
     box-shadow: 0 10px 20px rgba(255,0,90,0.45);
-    display: inline-block;      /* make sure button is treated the same */
-    text-align: center;
+    transition: transform 0.25s ease;
 }
 
-/* YES button */
 #yesBtn {
     background: linear-gradient(135deg, #ff4f8b, #ff0844);
     color: white;
 }
 
-/* NO button */
 #noBtn {
     background: linear-gradient(135deg, #ffb6c1, #ff4f8b);
     color: white;
 }
 
-/* Make link wrapping YES behave correctly */
-.btn-link {
-    display: inline-block;      /* ensures YES button size isn't affected */
-    text-decoration: none;      /* remove underline */
-}
-
-/* Hover effect for both */
-#yesBtn:hover, #noBtn:hover {
+button:hover {
     transform: scale(1.1);
 }
 
-
-/* Bribe box */
-.bribe {
-    margin-top: 25px;
-    text-align: center;
-    animation: fadeIn 0.5s ease;
+.btn-link {
+    text-decoration: none;
 }
 
-.bribe img {
-    width: 200px;
-    max-width: 80%;
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-}
-
-.bribe p {
-    margin-top: 12px;
-    font-size: 18px;
-    color: #c2185b;
-}
-
-/* Hide by default */
-.hidden {
-    display: none;
-}
-
-
-/* ===== SUCCESS SCREEN ===== */
-.success {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg, #ff0844, #ffb199);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 2.2rem;
-    text-align: center;
-    z-index: 999;
-    animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+/* ===== BRIBE OVERLAY ===== */
 .bribe-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(255, 182, 193, 0.92);
+    background: rgba(255, 182, 193, 0.95);
     display: none;
     justify-content: center;
     align-items: center;
@@ -206,155 +137,33 @@ button {
 }
 
 .bribe-content img {
-    width: 350px;
-    max-width: 85%;
+    width: clamp(220px, 80vw, 360px);
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
 .bribe-content p {
-    margin-top: 20px;
-    font-size: 1.4rem;
+    margin-top: 18px;
+    font-size: 1.2rem;
     color: #c2185b;
     font-weight: 600;
 }
 
 @keyframes popIn {
-    from {
-        transform: scale(0.7);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-    .yes-link {
-    text-decoration: none;
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
-/* ===== BUTTONS ===== */
-.ask {
+
+/* ===== SUCCESS ===== */
+.success {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff0844, #ffb199);
     display: flex;
-    gap: 20px;
     justify-content: center;
-    margin-top: 25px;
-}
-
-/* Shared button style */
-button {
-    padding: 14px 35px;
-    font-size: 18px;
-    border-radius: 35px;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s;
-    box-shadow: 0 10px 20px rgba(255,0,90,0.45);
-}
-
-/* YES button */
-#yesBtn {
-    background: linear-gradient(135deg, #ff4f8b, #ff0844);
+    align-items: center;
     color: white;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    text-align: center;
+    z-index: 999;
 }
-
-/* NO button */
-#noBtn {
-    background: #f2f2f2;
-    color: #555;
-}
-
-/* YES inside a link should not inherit link styles */
-.btn-link {
-    text-decoration: none; /* remove underline */
-    display: inline-block; /* ensure it behaves like a block container */
-}
-
-/* Hover effects */
-#yesBtn:hover, #noBtn:hover {
-    transform: scale(1.1);
-}
-
-/* ===== GLOBAL RESPONSIVE ===== */
-body {
-    font-size: 16px; /* base font size */
-}
-
-/* Sticky notes container responsive */
-.notes-container {
-    padding: 15px 20px;
-    gap: 15px;
-}
-
-/* Sticky note text responsive */
-.note p {
-    font-size: 14px;
-}
-
-/* Teddy responsive */
-.teddy img {
-    width: 70%; /* scale based on container */
-    max-width: 280px;
-}
-
-/* Buttons responsive */
-button {
-    padding: 12px 30px;
-    font-size: 16px;
-}
-/* For tablets and phones */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    .note {
-        width: 150px;
-        height: 140px;
-    }
-
-    .note p {
-        font-size: 13px;
-    }
-
-    .teddy img {
-        width: 60%;
-    }
-
-    button {
-        padding: 12px 25px;
-        font-size: 16px;
-    }
-}
-
-/* For small phones */
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.6rem;
-    }
-
-    .note {
-        width: 130px;
-        height: 120px;
-    }
-
-    .note p {
-        font-size: 12px;
-    }
-
-    .teddy img {
-        width: 55%;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
-html {
-    font-size: calc(14px + 0.5vw); /* scales font based on viewport width */
-}
-
-
-
-
-
-
