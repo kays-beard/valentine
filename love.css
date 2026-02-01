@@ -97,5 +97,46 @@ body {
         bottom: 15px;
     }
 }
+/* ===== IMAGE COLLAGE WRAPPER ===== */
+.image-collage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== MOBILE COLLAGE MODE ===== */
+@media (max-width: 768px) {
+
+    /* Stop absolute positioning */
+    .float-img {
+        position: static;
+        animation: none;
+        width: 45%;
+        max-width: 160px;
+    }
+
+    /* Turn images into a collage grid */
+    .image-collage {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+    .float-img {
+        width: 80%;
+        max-width: 200px;
+    }
+
+    .image-collage {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 
