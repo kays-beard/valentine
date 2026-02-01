@@ -100,7 +100,7 @@ header h1 {
     50% { transform: translateY(-12px); }
 }
 
-/* ===== BUTTON ===== */
+/* container */
 .ask {
     display: flex;
     gap: 20px;
@@ -108,25 +108,42 @@ header h1 {
     margin-top: 25px;
 }
 
-/* Buttons */
-#yesBtn, #noBtn {
+/* Shared button style */
+button {
     padding: 14px 35px;
     font-size: 18px;
-    border-radius: 35px;
+    border-radius: 35px;       /* circular ends */
     border: none;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: transform 0.3s;
+    box-shadow: 0 10px 20px rgba(255,0,90,0.45);
+    display: inline-block;      /* make sure button is treated the same */
+    text-align: center;
 }
 
+/* YES button */
 #yesBtn {
     background: linear-gradient(135deg, #ff4f8b, #ff0844);
     color: white;
 }
 
+/* NO button */
 #noBtn {
-    background: #f2f2f2;
-    color: #555;
+    background: linear-gradient(135deg, #ffb6c1, #ff4f8b);
+    color: white;
 }
+
+/* Make link wrapping YES behave correctly */
+.btn-link {
+    display: inline-block;      /* ensures YES button size isn't affected */
+    text-decoration: none;      /* remove underline */
+}
+
+/* Hover effect for both */
+#yesBtn:hover, #noBtn:hover {
+    transform: scale(1.1);
+}
+
 
 /* Bribe box */
 .bribe {
@@ -255,6 +272,7 @@ button {
 #yesBtn:hover, #noBtn:hover {
     transform: scale(1.1);
 }
+
 
 
 
