@@ -211,5 +211,10 @@ header h1 {
         transform: scale(1);
         opacity: 1;
     }
+    .yes-link {
+    text-decoration: none;
 }
+
+}
+
 
