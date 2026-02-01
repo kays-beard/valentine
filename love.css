@@ -119,5 +119,54 @@ body {
     z-index: 10; /* ALWAYS above images */
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
+/* ===== LOVE PAGE RESPONSIVE ===== */
+
+/* Base adjustments */
+body {
+    font-size: 16px;
+}
+
+/* Container for message */
+.love-message {
+    padding: 20px;
+    font-size: 1.6rem;
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Floating images */
+.floating-img {
+    width: 200px;
+    max-width: 30%;
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+    .love-message {
+        font-size: 1.3rem;
+        padding: 15px;
+    }
+
+    .floating-img {
+        width: 150px;
+        max-width: 35%;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .love-message {
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+
+    .floating-img {
+        width: 120px;
+        max-width: 40%;
+    }
+}
+
+
 
 
